@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key}) : super(key: key);
+  MyHomePage({Key? key}) : super(key: key);
   @override
   _MyHomePageState createState() => new _MyHomePageState();
 }
@@ -31,15 +31,15 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   bool isLogin = false;
 
-  String accesToken;
+  String? accesToken;
 
-  String expiresAt;
+  String? expiresAt;
 
-  String tokenType;
+  String? tokenType;
 
-  String name;
+  String? name;
 
-  String refreshToken;
+  String? refreshToken;
 
   @override
   void initState() {
@@ -125,9 +125,9 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Future<void> buttonTokenPressed() async {
-    NaverAccessToken res = await FlutterNaverLogin.currentAccessToken;
+    NaverAccessToken? res = await FlutterNaverLogin.currentAccessToken;
     setState(() {
-      accesToken = res.accessToken;
+      accesToken = res!.accessToken;
       tokenType = res.tokenType;
     });
   }
